@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 const header = () => {
   const [accordion, setAccordion] = useState(true);
@@ -11,35 +12,41 @@ const header = () => {
     setAccordion(!accordion);
   };
   return (
-    <div className="sticky flex flex-row-3 gap-5 justify-between items-center bg-white h-40 p-2">
+    <div
+      className="sticky flex flex-row-3 gap-5 justify-between items-center bg-linear-to-r/increasing from-indigo-500 to-teal-400
+      h-40 p-2"
+    >
       <img src="./routine.png" className="h-46 w-74" />
       <div className="flex flex-row-3 gap-5 font-serif">
         <div>
-          <h2 className="text-black text-center hover:text-orange-500">Home</h2>
+          <h2 className="text-black text-center hover:text-[#9C27B0]">Home</h2>
         </div>
         <div onClick={openAccordion}>
-          <h2 className="text-black text-center hover:text-orange-500">
+          <h2 className="text-black text-center hover:text-[#9C27B0]">
             Daily Records
           </h2>
 
           {!accordion && (
-            <div className="bg-orange-600 rounded-xl p-2">
-              <h2 className="text-black text-center hover:text-white">
+            <div className="bg-[#9C27B0] rounded-xl p-2">
+              <h2 className="text-black text-center hover:text-[#9C27B0]">
                 Today routine
               </h2>
-              <h2 className="text-black text-center hover:text-white">
+              <h2 className="text-black text-center hover:text-[#9C27B0]">
                 Yesterday routine
               </h2>
-              <h2 className="text-black text-center hover:text-white">
-                costom routine
+              <h2 className="text-black text-center hover:text-[#9C27B0]">
+                Custom routine
               </h2>
             </div>
           )}
         </div>
         <div>
-          <h2 className="text-black text-center hover:text-orange-500">
+          <Link
+            href="notes"
+            className="text-black text-center hover:text-[#9C27B0]"
+          >
             Notes
-          </h2>
+          </Link>
         </div>
       </div>
     </div>
